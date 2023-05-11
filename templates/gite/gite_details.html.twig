@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre gîte{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="card">
+            <div class="container-fluid">
+                <div class="wrapper row">
+                    <img src="{{ asset('/images/gites/'~gite.photos) }}">
+                    <div class="details col-md-6">
+                        <h3 class="product-title">{{ gite.city }}, {{ gite.department }}.</h3>
+                        <div class="rating">
+                            <div class="stars">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                            <span class="review-no">41 reviews</span>
+                        </div>
+                        <p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
+                        <h4 class="price">{{ gite.basePrice }}€ en moyenne/nuit.</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

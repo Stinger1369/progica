@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PROGICA - Association des Propriétaires de Gîtes Campagnards{% endblock %}
+
+{% block body %}
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <h3>Annonces ajoutées récemment</h3><br>
+        <div class="row row-cols-1 row-cols-md-3 g-4 container-fluid">
+            {% for gite in gites %}
+            <div class="col">
+                <div class="card">
+                    <img src="{{ asset('/images/gites/'~gite.photos) }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ gite.city }}, {{ gite.department }}.</h5>
+                        <p class="card-text">{{ gite.rooms }} chambres, {{ gite.beds }} couchages.</p>
+                        <p>{{ gite.surface }}m²</p>
+                        <p>{{ gite.basePrice }}€</p>
+                        <a href="{{ path('app_gite_details', {'id': gite.id}) }}">Détails</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <br>
+    <div class="container-fluid">
+        <h3>Nos recommandations</h3><br>
+        <div class="row row-cols-1 row-cols-md-3 g-4 container-fluid">
+            {% for gite in gites %}
+                <div class="col">
+                    <div class="card">
+                        <img src="{{ asset('/images/gites/'~gite.photos) }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ gite.city }}, {{ gite.department }}.</h5>
+                            <p class="card-text">{{ gite.rooms }} chambres, {{ gite.beds }} couchages.</p>
+                            <p>{{ gite.surface }}m²</p>
+                            <p>{{ gite.basePrice }}€</p>
+                            <a href="{{ path('app_gite_details', {'id': gite.id}) }}">Détails</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <br>
+    <div class="container-fluid">
+        <h3>À la découverte des terroirs français</h3><br>
+        <div class="row row-cols-1 row-cols-md-3 g-4 container-fluid">
+            {% for gite in gitesBy %}
+                <div class="col">
+                    <div class="card">
+                        <img src="{{ asset('/images/gites/'~gite.photos) }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ gite.city }}, {{ gite.department }}.</h5>
+                            <p class="card-text">{{ gite.rooms }} chambres, {{ gite.beds }} couchages.</p>
+                            <p>{{ gite.surface }}m²</p>
+                            <p>{{ gite.basePrice }}€</p>
+                            <a href="{{ path('app_gite_details', {'id': gite.id}) }}">Détails</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

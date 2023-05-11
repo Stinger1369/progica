@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle annonce{% endblock %}
+
+{% block body %}
+    <nav>{{ parent() }}</nav>
+    <div class="container">
+        <h1>Publier une annonce</h1>
+
+        {{ include('gite/_form.html.twig') }}
+
+        {% if is_granted('ROLE_ADMIN') %}
+            <a class="btn btn-warning"  href="{{ path('app_gite_index') }}">Liste complète</a>
+        {% endif %}
+    </div>
+{% endblock %}
